@@ -41,11 +41,13 @@ export default class PostCreateComponent implements OnInit {
           this.isLoading = true;
           this.postService.getPost(this.postId).subscribe(postData => {
             this.isLoading = false;
-            this.post = {id: postData._id, title: postData.title, content: postData.content, imagePath: postData.imagePath};
+            // tslint:disable-next-line:max-line-length
+            this.post = {id: postData._id, title: postData.title, content: postData.content, imagePath: postData.imagePath, creator: postData.creator};
             this.form.setValue({
-              'title' : this.post.title,
-              'content:' : this.post.content,
-              image: this.post.imagePath
+              title : this.post.title,
+              content: this.post.content,
+              image: this.post.imagePath,
+              creator : postData.creator
             });
           });
         } else {
