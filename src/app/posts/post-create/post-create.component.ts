@@ -53,7 +53,6 @@ export default class PostCreateComponent implements OnInit, OnDestroy {
               title : this.post.title,
               content: this.post.content,
               image: this.post.imagePath,
-              creator : postData.creator
             });
           });
         } else {
